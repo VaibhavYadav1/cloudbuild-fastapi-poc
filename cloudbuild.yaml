@@ -1,0 +1,15 @@
+substitutions:
+  _TAG: ${BUILD_ID}
+
+steps:
+  # 1. Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'asia-south2-docker.pkg.dev/$PROJECT_ID/python-repo/my-app:${_TAG}'
+      - '.'
+
+# 2. Automatically push and register the image
+images:
+  - 'asia-south2-docker.pkg.dev/$PROJECT_ID/python-repo/my-app:${_TAG}'
