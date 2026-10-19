@@ -4,7 +4,6 @@ from fastapi import FastAPI
 
 app = FastAPI(title="Cloud Build POC")
 
-# dummy
 @app.get("/")
 def home():
     """Single endpoint used for the Cloud Build demo."""
